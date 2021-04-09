@@ -1,6 +1,7 @@
-import devKeys from './dev';
-import prodKeys from './prod';
-
-const selectedKeys = process.env.NODE_ENV === 'production' ? prodKeys : devKeys;
-
-export default selectedKeys;
+export default (async () => {
+  if (process.env.NODE_ENV === 'production') {
+    return (await import('./prod')).default;
+  } else {
+    return (await import('./dev')).default;
+  }
+})();

@@ -5,27 +5,31 @@ import cookieSession from 'cookie-session';
 import './models/User';
 import './services/passport';
 import authRoutes from './routes/authRoutes';
-import keys from './config/keys';
+import selectedKeys from './config/keys';
 
-mongoose.connect(keys.mongoURI, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-});
+(async () => {
+  await selectedKeys.then((keys) => {
+  mongoose.connect(keys.mongoURI, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  });
 
-const app = express();
+  const app = express();
 
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey],
-  }),
-);
+  app.use(
+    cookieSession({
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      keys: [keys.cookieKey],
+    }),
+  );
 
-app.use(passport.initialize());
-app.use(passport.session());
+  app.use(passport.initialize());
+  app.use(passport.session());
 
-authRoutes(app);
+  authRoutes(app);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+  const PORT = process.env.PORT || 5000;
+    app.listen(PORT);
+  });
+})();
