@@ -4,6 +4,7 @@ import passport from 'passport';
 import cookieSession from 'cookie-session';
 import './models/User';
 import './services/passport';
+import * as path from 'path';
 import authRoutes from './routes/authRoutes';
 import selectedKeys from './config/keys';
 import billingRoutes from './routes/billingRoutes';
@@ -40,7 +41,6 @@ import billingRoutes from './routes/billingRoutes';
     app.use(express.static('client/build'));
     // Express will serve up the index.html file if it doesn't recognize the route
     // eslint-disable-next-line global-require
-    const path = require('path');
     app.get('*', (req, res) => {
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
