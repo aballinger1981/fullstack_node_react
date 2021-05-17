@@ -1,3 +1,4 @@
 const FETCH_USER = 'fetch_user';
+const FETCH_SURVEYS = 'fetch_surveys';
 
-export default FETCH_USER;
+export { FETCH_USER, FETCH_SURVEYS };

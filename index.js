@@ -3,12 +3,14 @@ import mongoose from 'mongoose';
 import passport from 'passport';
 import cookieSession from 'cookie-session';
 import './models/User';
+import './models/Survey';
 import './services/passport';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import authRoutes from './routes/authRoutes';
 import selectedKeys from './config/keys';
 import billingRoutes from './routes/billingRoutes';
+import surveyRoutes from './routes/surveyRoutes';
 
 (async () => {
   const keys = await selectedKeys();
@@ -36,6 +38,7 @@ import billingRoutes from './routes/billingRoutes';
 
   authRoutes(app);
   billingRoutes(app);
+  surveyRoutes(app);
 
   if (process.env.NODE_ENV === 'production') {
     // eslint-disable-next-line no-underscore-dangle
