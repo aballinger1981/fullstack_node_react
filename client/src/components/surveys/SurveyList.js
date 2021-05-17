@@ -10,7 +10,8 @@ class SurveyList extends Component {
   render() {
     return (
       <div>
-        {(this.props.surveys.reverse().map((survey) => (
+        {(console.log(this.props.surveys))}
+        {(this.props.surveys.map((survey) => (
           // eslint-disable-next-line no-underscore-dangle
           <div className="card darken-1 blue-grey" key={survey._id}>
             <div className="card-content white-text">
