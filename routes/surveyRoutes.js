@@ -14,6 +14,7 @@ export default async (app) => {
   const keys = await selectedKeys();
 
   app.get('/api/surveys', requireLogin, async (req, res) => {
+    console.log('hello');
     const surveys = await Survey.find({ _user: req.user.id })
       .select({ recipients: false });
     console.log('found surveys', surveys);
