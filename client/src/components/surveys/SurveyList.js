@@ -11,8 +11,8 @@ class SurveyList extends Component {
     return (
       <div>
         {console.log('surveys', this.props.surveys)}
-        Hell there!
-        {/* {(this.props.surveys.returned && this.props.surveys.data.reverse().map((survey) => (
+        Hello there!
+        {(this.props.surveys.returned && this.props.surveys.data.reverse().map((survey) => (
           // eslint-disable-next-line no-underscore-dangle
           <div className="card darken-1 blue-grey" key={survey._id}>
             <div className="card-content white-text">
@@ -26,12 +26,12 @@ class SurveyList extends Component {
             </div>
             <div className="card-action">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        {/* <a>Yes: {survey.yes}</a> */}
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        {/* <a>No: {survey.no}</a>
+              <a>Yes: {survey.yes}</a>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a>No: {survey.no}</a>
             </div>
-          </div> */}
-        {/* )))} */}
+          </div>
+        )))}
       </div>
     );
   }
