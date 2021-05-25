@@ -40,6 +40,7 @@ import surveyRoutes from './routes/surveyRoutes';
   billingRoutes(app);
   surveyRoutes(app);
 
+  console.log('env', process.env.NODE_ENV);
   if (process.env.NODE_ENV === 'production') {
     console.log('HELLO');
     console.log('fileURL', fileURLToPath(import.meta.url));
