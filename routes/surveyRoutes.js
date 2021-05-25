@@ -13,7 +13,7 @@ const Survey = mongoose.model('surveys');
 export default async (app) => {
   const keys = await selectedKeys();
 
-  app.get('/api/surveys', requireLogin, async (req, res) => {
+  app.get('/api/v1/surveys', requireLogin, async (req, res) => {
     console.log('hello');
     const surveys = await Survey.find({ _user: req.user.id })
       .select({ recipients: false });
