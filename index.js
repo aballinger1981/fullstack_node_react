@@ -43,13 +43,13 @@ import surveyRoutes from './routes/surveyRoutes';
   if (process.env.NODE_ENV === 'production') {
     // eslint-disable-next-line no-underscore-dangle
     const __dirname = dirname(fileURLToPath(import.meta.url));
-    // Express will serve up production assets like our main.js or main.css file
-    app.use(express.static('client/build'));
     // Express will serve up the index.html file if it doesn't recognize the route
     // eslint-disable-next-line global-require
     app.get('*', (req, res) => {
       res.sendFile(resolve(__dirname, './client/build', 'index.html'));
     });
+    // Express will serve up production assets like our main.js or main.css file
+    app.use(express.static('client/build'));
   }
 
   const PORT = process.env.PORT || 5000;

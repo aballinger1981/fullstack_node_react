@@ -18,7 +18,6 @@ export default async (app) => {
     const surveys = await Survey.find({ _user: req.user.id })
       .select({ recipients: false });
     console.log('found surveys', surveys);
-    res.setHeader('Content-type', 'application/json');
     res.send(surveys);
   });
 
