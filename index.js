@@ -48,7 +48,7 @@ import surveyRoutes from './routes/surveyRoutes';
     // Express will serve up the index.html file if it doesn't recognize the route
     // eslint-disable-next-line global-require
     app.get('*', (req, res) => {
-      res.sendFile(resolve(__dirname, 'client', 'build', 'index.html'));
+      res.sendFile(join(__dirname, 'client', 'build', 'index.html'));
     });
   }
 
