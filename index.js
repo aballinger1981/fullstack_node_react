@@ -5,7 +5,7 @@ import cookieSession from 'cookie-session';
 import './models/User';
 import './models/Survey';
 import './services/passport';
-import { dirname, resolve } from 'path';
+import { dirname, resolve, join } from 'path';
 import { fileURLToPath } from 'url';
 import authRoutes from './routes/authRoutes';
 import selectedKeys from './config/keys';
@@ -44,7 +44,7 @@ import surveyRoutes from './routes/surveyRoutes';
     // eslint-disable-next-line no-underscore-dangle
     const __dirname = dirname(fileURLToPath(import.meta.url));
     // Express will serve up production assets like our main.js or main.css file
-    app.use(express.static('client/build'));
+    app.use(express.static(join(__dirname, 'client/build')));
     // Express will serve up the index.html file if it doesn't recognize the route
     // eslint-disable-next-line global-require
     app.get('*', (req, res) => {
